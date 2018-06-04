@@ -1,7 +1,7 @@
 {
-  "name": "server",
+  "name": "moleculer",
   "version": "1.0.0",
-  "description": "",
+  "description": "moleculer microservice backend with express api routing",
   "main": "index.js",
   "scripts": {
     "start": "moleculer-runner",
