@@ -1,0 +1,35 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "moleculer-runner",
+    "dev": "moleculer-runner --repl --hot services",
+    "lint": "standard --fix --verbose | snazzy",
+    "deps": "npm-check -u"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "moleculer": "^0.12.5",
+    "moleculer-db": "^0.7.3",
+    "moleculer-db-adapter-mongoose": "^0.7.0",
+    "mongoose": "^5.1.3"
+  },
+  "devDependencies": {
+    "husky": "^0.14.3",
+    "moleculer-repl": "^0.4.0",
+    "npm-check": "^5.7.1",
+    "snazzy": "^7.1.1",
+    "standard": "^11.0.1"
+  }
+}
