@@ -12,30 +12,30 @@ module.exports = {
   adapter: new mongooseAdapter(process.env.DATABASE_URI || "mongodb://localhost:27017"),
   model: User,
   actions: {
-    // resolveToken: {
-		// 	cache: {
-		// 		keys: ["token"],
-     //    // 1 hour
-		// 		ttl: 60 * 60
-		// 	},
-		// 	params: {
-		// 		token: "string"
-		// 	},
-		// 	handler(ctx) {
-     //    try {
-     //      //TODO: could be promise based, try with 'await' once confirmed with callback
-     //      jwt.verify(ctx.params.token, this.settings.JWT_SECRET, (error, decoded) => {
-     //        if(error) return console.error(error)
-     //        if(decoded.id) {
-     //          return this.getById(decoded.id)
-     //        } else {
-     //          return console.error('no decoded.id')
-     //        }
-     //      })
-     //    } catch(error) {
-     //      return console.error(error)
-     //    }
-		// 	}
-		// }
+    resolveToken: {
+			cache: {
+				keys: ["token"],
+        // 1 hour
+				ttl: 60 * 60
+			},
+			params: {
+				token: "string"
+			},
+			handler(ctx) {
+        try {
+          //TODO: could be promise based, try with 'await' once confirmed with callback
+          jwt.verify(ctx.params.token, this.settings.JWT_SECRET, (error, decoded) => {
+            if(error) return console.error(error)
+            if(decoded.id) {
+              return this.getById(decoded.id)
+            } else {
+              return console.error('no decoded.id')
+            }
+          })
+        } catch(error) {
+          return console.error(error)
+        }
+			}
+		}
   }
 }
