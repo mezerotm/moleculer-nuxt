@@ -2,7 +2,7 @@
 
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-> moleculer microservice backend with express api routing + nuxt.js frontend
+> moleculer microservice backend api + nuxt.js frontend
 
 ## Table of Contents
 
