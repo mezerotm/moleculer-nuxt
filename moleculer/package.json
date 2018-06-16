@@ -18,6 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "jsonwebtoken": "^8.2.2",
     "moleculer": "^0.12.5",
     "moleculer-db": "^0.7.3",
     "moleculer-db-adapter-mongoose": "^0.7.0",

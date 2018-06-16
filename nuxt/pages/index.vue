@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>{{ api.message }}</p>
+    <p>{{ api }}</p>
   </div>
 </template>
 
