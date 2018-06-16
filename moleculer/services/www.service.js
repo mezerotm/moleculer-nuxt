@@ -9,10 +9,22 @@ module.exports = {
     authorization: true,
     routes: [{
       aliases: {
-        '/': 'www.index',
-        'POST users': 'users.create'
+        'GET /': 'www.index',
+        'POST /': 'www.postIndex',
+        'PUT database': 'database.put',
+        'POST database': 'database.post',
+        'GET database': 'database.get'
       }
     }]
   },
-  methods: {}
+  actions: {
+    index() {
+      return '\'/\': \'www.index\''
+    },
+    postIndex(ctx) {
+      return ctx.params
+    }
+  },
+  methods: {},
+  created() {}
 }
