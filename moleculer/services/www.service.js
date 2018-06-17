@@ -11,9 +11,12 @@ module.exports = {
       aliases: {
         'GET /': 'www.index',
         'POST /': 'www.postIndex',
+
         'PUT database': 'database.put',
         'POST database': 'database.post',
-        'GET database': 'database.get'
+        'GET database': 'database.get',
+        'DELETE database': 'database.delete',
+        'GET database/find': 'database.find'
       }
     }]
   },

@@ -8,7 +8,10 @@ module.exports = {
   },
   actions: {
     put: {
-      params: {},
+      params: {
+        model: {type: 'string', min: 1, max: 64},
+        schema: {type: 'object'}
+      },
       handler(ctx) {
         const name = ctx.params.name
         const ctxSchema = ctx.params.schema
@@ -18,30 +21,44 @@ module.exports = {
       }
     },
     post: {
-      params: {},
-      handler(ctx) {
-        const name = ctx.params.name
+      params: {
+        model: {type: 'string', min: 1, max: 64},
+        entries: {type: 'array', min: 1}
+      },
+      async handler(ctx) {
         const entries = ctx.params.entries
 
-        const model = mongoose.model(name)
-        model.insertMany(entries)
+        const model = this.getModel(ctx)
+        return await model.insertMany(entries)
       }
     },
     get: {
-      params: {},
-      async handler(ctx) {
-        const name = ctx.params.name
-
-        const model = mongoose.model(name)
-
+      params: {
+        model: {type: 'string', min: 1, max: 64}
+      },
+      handler(ctx) {
+        const model = this.getModel(ctx)
         return model.schema
       }
     },
     delete: {
-      params: {},
+      params: {
+        model: {type: 'string', min: 1, max: 64}
+      },
       handler(ctx) {
+        const model = this.getModel(ctx)
+        model.collection.drop()
+      }
+    },
+    find: {
+      handler() {
 
       }
+    }
+  },
+  methods: {
+    getModel(ctx) {
+      return mongoose.model(ctx.params.model)
     }
   },
   //TODO: add moleculer event listener to listen to mongoose streams for logging
