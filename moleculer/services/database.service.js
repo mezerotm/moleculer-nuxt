@@ -53,14 +53,14 @@ module.exports = {
     find: {
       params: {
         model: {type: 'string', min: 1, max: 64, optional: false},
-        query: {type: 'string', optional: false},
-        projection: {type: 'string', optional: true},
-        options: {type: 'string', optional: true}
+        query: {type: 'object', optional: false},
+        projection: {type: 'object', optional: true},
+        options: {type: 'object', optional: true}
       },
       async handler(ctx) {
-        const query = JSON.parse(ctx.params.query)
-        const projection = JSON.parse(ctx.params.projection || null)
-        const options = JSON.parse(ctx.params.options || null)
+        const query = ctx.params.query
+        const projection = ctx.params.projection
+        const options = ctx.params.options
 
         const model = this.getModel(ctx)
         return await model.find(query, projection, options)

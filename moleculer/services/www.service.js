@@ -16,7 +16,7 @@ module.exports = {
         'POST database': 'database.post',
         'GET database': 'database.get',
         'DELETE database': 'database.delete',
-        'GET database/find': 'database.find'
+        'POST database/find': 'database.find'
       }
     }]
   },
