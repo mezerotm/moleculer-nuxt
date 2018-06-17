@@ -9,21 +9,21 @@ module.exports = {
   actions: {
     put: {
       params: {
-        model: {type: 'string', min: 1, max: 64},
-        schema: {type: 'object'}
+        model: {type: 'string', min: 1, max: 64, optional: false},
+        schema: {type: 'object', optional: false}
       },
       handler(ctx) {
-        const name = ctx.params.name
+        const model = ctx.params.model
         const ctxSchema = ctx.params.schema
 
         const schema = new mongoose.Schema(ctxSchema)
-        mongoose.model(name, schema)
+        mongoose.model(model, schema)
       }
     },
     post: {
       params: {
-        model: {type: 'string', min: 1, max: 64},
-        entries: {type: 'array', min: 1}
+        model: {type: 'string', min: 1, max: 64, optional: false},
+        entries: {type: 'array', min: 1, optional: false}
       },
       async handler(ctx) {
         const entries = ctx.params.entries
@@ -34,7 +34,7 @@ module.exports = {
     },
     get: {
       params: {
-        model: {type: 'string', min: 1, max: 64}
+        model: {type: 'string', min: 1, max: 64, optional: false}
       },
       handler(ctx) {
         const model = this.getModel(ctx)
@@ -43,7 +43,7 @@ module.exports = {
     },
     delete: {
       params: {
-        model: {type: 'string', min: 1, max: 64}
+        model: {type: 'string', min: 1, max: 64, optional: false}
       },
       handler(ctx) {
         const model = this.getModel(ctx)
@@ -51,8 +51,19 @@ module.exports = {
       }
     },
     find: {
-      handler() {
+      params: {
+        model: {type: 'string', min: 1, max: 64, optional: false},
+        query: {type: 'string', optional: false},
+        projection: {type: 'string', optional: true},
+        options: {type: 'string', optional: true}
+      },
+      async handler(ctx) {
+        const query = JSON.parse(ctx.params.query)
+        const projection = JSON.parse(ctx.params.projection || null)
+        const options = JSON.parse(ctx.params.options || null)
 
+        const model = this.getModel(ctx)
+        return await model.find(query, projection, options)
       }
     }
   },
