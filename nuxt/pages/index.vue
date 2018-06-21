@@ -1,19 +1,27 @@
-<template>
-  <div>
-    <p>{{ api }}</p>
-  </div>
-</template>
+<template lang="pug">
+    .section
+        database-put
+        database-post
+        database-find
 
+</template>
 <script>
+import databasePut from '@/components/databasePut'
+import databasePost from '@/components/databasePost'
+import databaseFind from '@/components/databaseFind'
+
 export default {
-  data () {
-    return {
-      api: 'sample'
-    }
+  components: {
+    databasePut,
+    databasePost,
+    databaseFind
   },
-  async mounted () {
-    this.api = await this.$axios.$get('/')
-    console.log(this.api)
-  }
+  data () {
+    return {}
+  },
+  methods: {}
 }
 </script>
+
+<style lang="scss">
+</style>
