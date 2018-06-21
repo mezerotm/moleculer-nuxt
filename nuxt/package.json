@@ -19,7 +19,8 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.1",
-    "nuxt": "^1.0.0"
+    "nuxt": "^1.0.0",
+    "nuxt-buefy": "0.0.5"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
@@ -33,7 +34,11 @@
     "eslint-plugin-standard": "^3.1.0",
     "eslint-plugin-vue": "^4.5.0",
     "husky": "^0.14.3",
+    "node-sass": "^4.9.0",
     "npm-check": "^5.7.1",
+    "pug": "^2.0.3",
+    "pug-plain-loader": "^1.0.0",
+    "sass-loader": "^7.0.3",
     "standard": "^11.0.1"
   }
 }
