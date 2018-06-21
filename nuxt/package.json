@@ -1,5 +1,5 @@
 {
-  "name": "nuxt",
+  "name": "moleculer-nuxt",
   "version": "1.0.0",
   "description": "nuxt.js frontend",
   "author": "Carlos Rincon <mezerotm@gmail.com>",
@@ -19,8 +19,8 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.1",
-    "nuxt": "^1.0.0",
-    "nuxt-buefy": "0.0.5"
+    "nuxt": "^1.4.1",
+    "nuxt-buefy": "^0.1.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
