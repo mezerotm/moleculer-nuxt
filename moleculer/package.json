@@ -7,16 +7,21 @@
     "start": "moleculer-runner",
     "dev": "moleculer-runner --repl --hot services",
     "lint": "standard --fix --verbose | snazzy",
-    "deps": "npm-check -u"
+    "test": "jest"
   },
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint"
     }
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "standard": {
+    "ignore": [
+      "/node_modules/"
+    ],
+    "env": [
+      "jest"
+    ]
+  },
   "dependencies": {
     "jsonwebtoken": "^8.3.0",
     "moleculer": "^0.12.8",
@@ -27,6 +32,7 @@
   },
   "devDependencies": {
     "husky": "^0.14.3",
+    "jest": "^23.4.0",
     "moleculer-repl": "^0.4.0",
     "npm-check": "^5.7.1",
     "snazzy": "^7.1.1",
