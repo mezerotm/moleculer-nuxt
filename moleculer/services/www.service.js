@@ -21,13 +21,13 @@ module.exports = {
     }]
   },
   actions: {
-    index() {
+    index () {
       return '\'/\': \'www.index\''
     },
-    postIndex(ctx) {
+    postIndex (ctx) {
       return ctx.params
     }
   },
   methods: {},
-  created() {}
+  created () {}
 }
